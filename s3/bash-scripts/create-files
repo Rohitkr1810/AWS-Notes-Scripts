@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+FILE_PATH=tmp/randomfile
+
+rm -r "$FILE_PATH"
+
+mkdir -p "$FILE_PATH"
+
+NUM_FILES=$((RANDOM % 6 + 5))
+
+for ((i=1; i<=$NUM_FILES; i++)); do
+    FILE_NAME="$FILE_PATH/file_$i.txt"
+
+    dd if=/dev/urandom of="$FILE_NAME" bs=1024 count=$((RANDOM % 1024 + 1)) 2>/dev/null
+done
+
+ls -lh "$FILE_PATH"

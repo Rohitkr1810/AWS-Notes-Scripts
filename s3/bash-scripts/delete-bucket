@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+## Usage 
+## ./delete-bucket <bucket-name> <region>
+## Example: ./delete-bucket test-rohit-nov29-1234 us-east-1
+
+echo "== delete bucket =="
+
+# check if bucket name(one argument) provided or not
+if [ $# -ne 2 ]; then
+    echo "Error: Please pass correct arguments"
+    exit 1
+fi
+
+
+aws s3api delete-bucket \
+--bucket $1 \
+--region $2

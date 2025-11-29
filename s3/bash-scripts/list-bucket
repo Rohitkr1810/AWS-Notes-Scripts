@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+## Usage -- Deleting the bucket
+## ./list-bucket <region>
+## Example: ./list-bucket us-east-1
+
+echo "== list bucket =="
+
+aws s3 ls
+

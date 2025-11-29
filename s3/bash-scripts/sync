@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+## Usage -- Deleting the bucket
+## ./create-bucket <src> <destination>
+## src--> should be local dir
+## Example: ./create-bucket test-rohit-nov29-1234 us-east-1
+
+echo "== sync local files files bucket/files folder =="
+
+# check if bucket name(one argument) provided or not
+if [ $# -ne 2 ]; then
+    echo "Error: enter two arugment "
+    exit 1
+fi
+
+
+aws s3 sync $1 s3://$2/files

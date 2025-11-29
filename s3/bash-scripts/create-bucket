@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+## Usage -- Deleting the bucket
+## ./create-bucket <bucket-name> <region>
+## Example: ./create-bucket test-rohit-nov29-1234 us-east-1
+
+echo "== create bucket =="
+
+# check if bucket name(one argument) provided or not
+if [ $# -ne 2 ]; then
+    echo "The bucket needs to be a single argument"
+    exit 1
+fi
+
+
+aws s3api create-bucket \
+--bucket $1 \
+--create-bucket-configuration="LocationConstraint=$2" \
+--query Location

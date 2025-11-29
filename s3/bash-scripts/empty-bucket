@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+## Usage 
+## ./empty-bucket <bucket-name> 
+## Example: ./empty-bucket test-rohit-nov29-1234
+
+echo "== empty bucket =="
+
+# check if bucket name(one argument) provided or not
+if [ $# -ne 1 ]; then
+    echo "Error: Please pass correct and only a bucket name"
+    exit 1
+fi
+
+
+aws s3 rm s3://$1 \
+--recursive \
+--only-show-errors
